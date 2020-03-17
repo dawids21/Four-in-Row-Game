@@ -1,0 +1,5 @@
+package FourInRow;
+
+class Board {
+    
+}

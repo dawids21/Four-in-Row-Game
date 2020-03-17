@@ -4,7 +4,7 @@ class Cell {
     private int value = 0;
     
     Cell() {
-
+        value = 0;
     }
 
     int getValue() {
