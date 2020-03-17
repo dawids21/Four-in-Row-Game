@@ -19,4 +19,12 @@ class Column {
     int getFreeSpace() {
         return freeSpace;
     }
+
+    int getColumnLength() {
+        return cells.length;
+    }
+
+    int getCellValue(int cell) {
+        return cells[cell].getValue();
+    }
 }
