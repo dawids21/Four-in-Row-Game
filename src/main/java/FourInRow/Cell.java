@@ -15,5 +15,4 @@ class Cell {
         this.value = value;
     }
 
-    
 }

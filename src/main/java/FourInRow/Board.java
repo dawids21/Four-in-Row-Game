@@ -19,7 +19,7 @@ class Board {
 
 	public void display() {
         System.out.println();
-        for (int i = columns[0].getColumnLength() - 1; i >= 0; i--) {
+        for (int i = 0; i < columns[0].getColumnLength(); i++) {
             System.out.print("|");
             for (int j = 0; j < columns.length; j++) {
                 if (columns[j].getCellValue(i) == 1) {
@@ -35,6 +35,11 @@ class Board {
             System.out.println();
         }
         System.out.println("———————————————");
+        System.out.print(" ");
+        for (int i = 0; i < columns.length; i++) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
 	}
 
 	public void makeTurn(int turn, Scanner input) {
@@ -44,7 +49,7 @@ class Board {
             if (inputColumn < 0 || inputColumn > 6) {
                 System.out.println("This column is out of bound. Choose another one.");
             }
-            else if (columns[inputColumn].getFreeSpace() == 6) {
+            else if (columns[inputColumn].getFreeSpace() == -1) {
                 System.out.println("This column is full. Choose another one.");
             }
             else {
@@ -56,4 +61,8 @@ class Board {
         columns[inputColumn].addOne(turn);
 	}
 
+	public void clear() {
+	}
+
+    
 }

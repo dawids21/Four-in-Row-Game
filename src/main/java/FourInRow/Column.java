@@ -8,12 +8,12 @@ class Column {
         for (int i = 0; i < cells.length; i++) {
             cells[i] = new Cell();
         }
-        freeSpace = 0;
+        freeSpace = 5;
     }
 
     void addOne(int player) {
         cells[freeSpace].setValue(player);
-        freeSpace++;
+        freeSpace--;
     }
 
     int getFreeSpace() {
