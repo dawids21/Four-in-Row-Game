@@ -34,7 +34,7 @@ class Board {
             }
             System.out.println();
         }
-        System.out.println("———————————————");
+        System.out.println("---------------");
         System.out.print(" ");
         for (int i = 0; i < columns.length; i++) {
             System.out.print(i + " ");
