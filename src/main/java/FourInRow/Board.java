@@ -62,6 +62,9 @@ class Board {
 	}
 
 	public void clear() {
+        for (int i = 0; i < columns.length; i++) {
+            columns[i].clear();
+        }
 	}
 
     

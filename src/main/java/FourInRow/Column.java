@@ -27,4 +27,10 @@ class Column {
     int getCellValue(int cell) {
         return cells[cell].getValue();
     }
+
+	public void clear() {
+        for (int i = 0; i < cells.length; i++) {
+            cells[i].setValue(0);
+        }
+	}
 }
