@@ -17,7 +17,6 @@ public class App
                 board.makeTurn(turn, input);
                 turn = (turn == 1 ? 2 : 1);
                 winner = board.getWinner();
-                System.out.println("debug");
             }
             board.display();
             System.out.println("The " + (winner == 1 ? "yellow" : "red") + " player won");
