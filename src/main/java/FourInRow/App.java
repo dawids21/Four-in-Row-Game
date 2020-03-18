@@ -9,9 +9,9 @@ public class App
         Scanner input = new Scanner(System.in);
         Board board = new Board();
         while (true) {
+            board.clear();
             int turn = 1;
             int winner = board.getWinner();
-            board.clear();
             while (winner == 0) {
                 board.display();
                 board.makeTurn(turn, input);

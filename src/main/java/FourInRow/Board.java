@@ -64,38 +64,38 @@ class Board {
 
 	private int checkBoard(int turn) {
         int winner = 0;
-        for (int cellX = 0; cellX < columns.length; cellX++) {
-            for (int cellY = columns[cellX].getFreeSpace() + 1; cellY < columns[cellX].getColumnLength(); cellY++) {
-                int thisCell = columns[cellX].getCellValue(cellY);
-                if (cellY < 3 && cellX < 4) {
-                    winner = checkColumn(cellY, cellX, thisCell);
+        for (int column = 0; column < columns.length; column++) {
+            for (int row = columns[column].getFreeSpace() + 1; row < columns[column].getColumnLength(); row++) {
+                int thisCell = columns[column].getCellValue(row);
+                if (column < 3 && row < 3) {
+                    winner = checkColumn(row, column, thisCell);
                     if (winner == 0) {
-                        winner = checkRow(cellY, cellX, thisCell);
+                        winner = checkRow(row, column, thisCell);
                     }
                     if (winner == 0) {
-                        winner = checkDiagonal(cellY, cellX, thisCell);
-                    }
-                }
-                else if (cellY < 3 && cellX == 4) {
-                    winner = checkColumn(cellY, cellX, thisCell);
-                    if (winner == 0) {
-                        winner = checkRow(cellY, cellX, thisCell);
-                    }
-                    if (winner == 0) {
-                        winner = checkDiagonal(cellY, cellX, thisCell);
-                    }
-                    if (winner == 0) {
-                        winner = checkAntiDiagonal(cellY, cellX, thisCell);
+                        winner = checkDiagonal(row, column, thisCell);
                     }
                 }
-                else if (cellY < 3 && cellX > 4) {
-                    winner = checkColumn(cellY, cellX, thisCell);
+                else if (row < 3 && column == 3) {
+                    winner = checkColumn(row, column, thisCell);
                     if (winner == 0) {
-                        winner = checkAntiDiagonal(cellY, cellX, thisCell);
+                        winner = checkRow(row, column, thisCell);
+                    }
+                    if (winner == 0) {
+                        winner = checkDiagonal(row, column, thisCell);
+                    }
+                    if (winner == 0) {
+                        winner = checkAntiDiagonal(row, column, thisCell);
                     }
                 }
-                else if (cellY >= 3 && cellX < 4) {
-                    winner = checkRow(cellY, cellX, thisCell);
+                else if (row < 3 && column > 3) {
+                    winner = checkColumn(row, column, thisCell);
+                    if (winner == 0) {
+                        winner = checkAntiDiagonal(row, column, thisCell);
+                    }
+                }
+                else if (row >= 3 && column < 4) {
+                    winner = checkRow(row, column, thisCell);
                 }
                 else {
                     break;
@@ -111,20 +111,48 @@ class Board {
         return winner;
     }
 
-    private int checkAntiDiagonal(int cellY, int cellX, int thisCell) {
-        return 0;
+    private int checkAntiDiagonal(int row, int column, int thisCell) {
+        int winner = thisCell;
+        for (int i = 1; i < 4; i++) {
+            if (columns[column - i].getCellValue(row + i) != thisCell) {
+                winner = 0;
+                break;
+            }
+        }
+        return winner;
     }
 
-    private int checkDiagonal(int cellY, int cellX, int thisCell) {
-        return 0;
+    private int checkDiagonal(int row, int column, int thisCell) {
+        int winner = thisCell;
+        for (int i = 1; i < 4; i++) {
+            if (columns[column + i].getCellValue(row + i) != thisCell) {
+                winner = 0;
+                break;
+            }
+        }
+        return winner;
     }
 
-    private int checkRow(int cellY, int cellX, int thisCell) {
-        return 0;
+    private int checkRow(int row, int column, int thisCell) {
+        int winner = thisCell;
+        for (int i = 1; i < 4; i++) {
+            if (columns[column + i].getCellValue(row) != thisCell) {
+                winner = 0;
+                break;
+            }
+        }
+        return winner;
     }
 
-    private int checkColumn(int cellY, int cellX, int thisCell) {
-        return 0;
+    private int checkColumn(int row, int column, int thisCell) {
+        int winner = thisCell;
+        for (int i = 1; i < 4; i++) {
+            if (columns[column].getCellValue(row + i) != thisCell) {
+                winner = 0;
+                break;
+            }
+        }
+        return winner;
     }
 
     void clear() {
