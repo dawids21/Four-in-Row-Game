@@ -43,7 +43,7 @@ class Board {
 	}
 
 	void makeTurn(int turn, Scanner input) {
-        System.out.print("Drop a " + (turn == 1 ? "yellow" : "red") + " disk at column (0–6): ");
+        System.out.print("Drop a " + (turn == 1 ? "yellow" : "red") + " disk at column (0-6): ");
         int inputColumn = input.nextInt();
         while (true) {
             if (inputColumn < 0 || inputColumn > 6) {
