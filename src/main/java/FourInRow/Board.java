@@ -55,7 +55,7 @@ class Board {
             else {
                 break;
             }
-            System.out.print("Drop a " + (turn == 1 ? "yellow" : "red") + " disk at column (0–6): ");
+            System.out.print("Drop a " + (turn == 1 ? "yellow" : "red") + " disk at column (0-6): ");
             inputColumn = input.nextInt();
         }
         columns[inputColumn].addOne(turn);
