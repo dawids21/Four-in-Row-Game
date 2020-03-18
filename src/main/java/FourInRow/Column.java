@@ -32,5 +32,6 @@ class Column {
         for (int i = 0; i < cells.length; i++) {
             cells[i].setValue(0);
         }
+        freeSpace = 5;
 	}
 }

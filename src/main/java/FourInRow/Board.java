@@ -159,6 +159,7 @@ class Board {
         for (int i = 0; i < columns.length; i++) {
             columns[i].clear();
         }
+        winner = 0;
 	}
 
     
